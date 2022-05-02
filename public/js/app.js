@@ -182,7 +182,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 _this4.card = _context4.sent;
 
-              case 4:
+                if (_this4.card.value < _this4.previousCard.value) {
+                  console.log('Correct!');
+                } else {
+                  console.log('You lose.');
+                }
+
+              case 5:
               case "end":
                 return _context4.stop();
             }

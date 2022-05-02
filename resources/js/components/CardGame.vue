@@ -50,6 +50,12 @@
             async guessLower() {
                 this.previousCard = this.card;
                 this.card = await this.drawCard();
+
+                if (this.card.value < this.previousCard.value) {
+                    console.log('Correct!');
+                } else {
+                    console.log('You lose.');
+                }
             }
         }
     }
