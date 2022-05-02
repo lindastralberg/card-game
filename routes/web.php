@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/api/new_deck', [CardGameController::class, 'getNewDeck']);
+Route::get('/api/{deck_id}/draw', [CardGameController::class, 'drawCard']);
