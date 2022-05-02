@@ -130,6 +130,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 2:
+                _context2.next = 4;
+                return _this2.drawCard();
+
+              case 4:
+                _this2.card = _context2.sent;
+
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -141,6 +148,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var card;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -149,10 +157,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return fetch("http://localhost:8000/api/".concat(_this3.deckId, "/draw")).then(function (response) {
                   return response.json();
                 }).then(function (data) {
-                  return _this3.card = data.cards[0];
+                  return card = data.cards[0];
                 });
 
               case 2:
+                return _context3.abrupt("return", card);
+
+              case 3:
               case "end":
                 return _context3.stop();
             }

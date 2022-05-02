@@ -33,11 +33,16 @@
                 await fetch('http://localhost:8000/api/new_deck')
                     .then(response => response.json())
                     .then(data => this.deckId = data.deck_id);
+
+                this.card = await this.drawCard();
             },
             async drawCard() {
+                let card;
                 await fetch(`http://localhost:8000/api/${this.deckId}/draw`)
                     .then(response => response.json())
-                    .then(data => this.card = data.cards[0]);
+                    .then(data => card = data.cards[0]);
+
+                return card;
             },
         }
     }
