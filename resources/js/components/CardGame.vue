@@ -16,4 +16,10 @@
 h1 {
     font-family: 'Roboto';
 }
+
+.container {
+    display: grid;
+    grid-column-start: 2;
+    justify-content: center;
+}
 </style>
