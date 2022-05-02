@@ -9,8 +9,8 @@
         />
         <div class="buttons">
             <button @click="this.guessLower">Lower</button>
-            <button>Same</button>
-            <button>Higher</button>
+            <button @click="this.guessSame">Same</button>
+            <button @click="this.guessHigher">Higher</button>
         </div>
     </div>
 </template>
@@ -47,16 +47,37 @@
 
                 return card;
             },
-            async guessLower() {
+            async drawNewCard() {
                 this.previousCard = this.card;
                 this.card = await this.drawCard();
+            },
+            async guessLower() {
+                await this.drawNewCard();
 
                 if (this.card.value < this.previousCard.value) {
                     console.log('Correct!');
                 } else {
                     console.log('You lose.');
                 }
-            }
+            },
+            async guessSame() {
+                await this.drawNewCard();
+
+                if (this.card.value == this.previousCard.value) {
+                    console.log('Correct!');
+                } else {
+                    console.log('You lose.');
+                }
+            },
+            async guessHigher() {
+                await this.drawNewCard();
+
+                if (this.card.value > this.previousCard.value) {
+                    console.log('Correct!');
+                } else {
+                    console.log('You lose.');
+                }
+            },
         }
     }
 </script>

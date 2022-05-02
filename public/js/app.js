@@ -167,7 +167,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    guessLower: function guessLower() {
+    drawNewCard: function drawNewCard() {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
@@ -182,18 +182,90 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 _this4.card = _context4.sent;
 
-                if (_this4.card.value < _this4.previousCard.value) {
-                  console.log('Correct!');
-                } else {
-                  console.log('You lose.');
-                }
-
-              case 5:
+              case 4:
               case "end":
                 return _context4.stop();
             }
           }
         }, _callee4);
+      }))();
+    },
+    guessLower: function guessLower() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return _this5.drawNewCard();
+
+              case 2:
+                if (_this5.card.value < _this5.previousCard.value) {
+                  console.log('Correct!');
+                } else {
+                  console.log('You lose.');
+                }
+
+              case 3:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    guessSame: function guessSame() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.next = 2;
+                return _this6.drawNewCard();
+
+              case 2:
+                if (_this6.card.value == _this6.previousCard.value) {
+                  console.log('Correct!');
+                } else {
+                  console.log('You lose.');
+                }
+
+              case 3:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    guessHigher: function guessHigher() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.next = 2;
+                return _this7.drawNewCard();
+
+              case 2:
+                if (_this7.card.value > _this7.previousCard.value) {
+                  console.log('Correct!');
+                } else {
+                  console.log('You lose.');
+                }
+
+              case 3:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
       }))();
     }
   }
@@ -1716,9 +1788,9 @@ var render = function () {
       _c("div", { staticClass: "buttons" }, [
         _c("button", { on: { click: this.guessLower } }, [_vm._v("Lower")]),
         _vm._v(" "),
-        _c("button", [_vm._v("Same")]),
+        _c("button", { on: { click: this.guessSame } }, [_vm._v("Same")]),
         _vm._v(" "),
-        _c("button", [_vm._v("Higher")]),
+        _c("button", { on: { click: this.guessHigher } }, [_vm._v("Higher")]),
       ]),
     ],
     1
