@@ -108,24 +108,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var res, data;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return fetch('http://localhost:8000/api/new_deck');
+                return fetch('http://localhost:8000/api/new_deck').then(function (response) {
+                  return response.json();
+                }).then(function (data) {
+                  return _this2.deckId = data.deck_id;
+                });
 
               case 2:
-                res = _context2.sent;
-                _context2.next = 5;
-                return res.json();
-
-              case 5:
-                data = _context2.sent;
-                _this2.deckId = data.deck_id;
-
-              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -137,24 +131,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var res, data;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return fetch("http://localhost:8000/api/".concat(_this3.deckId, "/draw"));
+                return fetch("http://localhost:8000/api/".concat(_this3.deckId, "/draw")).then(function (response) {
+                  return response.json();
+                }).then(function (data) {
+                  return _this3.card = data.cards[0];
+                });
 
               case 2:
-                res = _context3.sent;
-                _context3.next = 5;
-                return res.json();
-
-              case 5:
-                data = _context3.sent;
-                _this3.card = data.cards[0];
-
-              case 7:
               case "end":
                 return _context3.stop();
             }

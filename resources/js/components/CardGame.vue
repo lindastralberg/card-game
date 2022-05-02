@@ -27,14 +27,14 @@
         },
         methods: {
             async getNewDeck() {
-                const res = await fetch('http://localhost:8000/api/new_deck');
-                const data = await res.json();
-                this.deckId = data.deck_id;
+                await fetch('http://localhost:8000/api/new_deck')
+                    .then(response => response.json())
+                    .then(data => this.deckId = data.deck_id);
             },
             async drawCard() {
-                const res = await fetch(`http://localhost:8000/api/${this.deckId}/draw`);
-                const data = await res.json();
-                this.card = data.cards[0];
+                await fetch(`http://localhost:8000/api/${this.deckId}/draw`)
+                    .then(response => response.json())
+                    .then(data => this.card = data.cards[0]);
             },
         }
     }
