@@ -1,13 +1,20 @@
 <template>
     <div class="container">
         <h1>Card Game</h1>
+        <card 
+            v-if="this.card"
+            :src="this.card.image"
+            :value="this.card.value"
+            :suit="this.card.suit"
+        />
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
+    import Card from './Card.vue';
 
     export default {
+        components: { Card },
         async mounted() {
             await this.getNewDeck();
             await this.drawCard();
