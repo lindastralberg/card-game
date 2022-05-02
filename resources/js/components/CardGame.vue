@@ -5,25 +5,30 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
-        mounted() {
-            console.log('Component mounted.')
-            this.getNewDeck();
+        async mounted() {
+            await this.getNewDeck();
+            await this.drawCard();
         },
         data() {
             return {
                 deckId: null,
+                card: null,
             };
         },
         methods: {
-            getNewDeck() {
-                fetch('http://localhost:8000/api/new_deck')
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        this.deckId = data.deck_id;
-                    });
-            }
+            async getNewDeck() {
+                const res = await fetch('http://localhost:8000/api/new_deck');
+                const data = await res.json();
+                this.deckId = data.deck_id;
+            },
+            async drawCard() {
+                const res = await fetch(`http://localhost:8000/api/${this.deckId}/draw`);
+                const data = await res.json();
+                this.card = data.cards[0];
+            },
         }
     }
 </script>
