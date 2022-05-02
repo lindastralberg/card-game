@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/new_deck', [CardGameController::class, 'getNewDeck']);
+Route::get('/api/new_deck', [CardGameController::class, 'getNewDeck']);

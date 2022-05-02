@@ -8,6 +8,9 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+            fetch('http://localhost:8000/api/new_deck')
+                .then(response => response.json())
+                .then(data => console.log(data));
         }
     }
 </script>

@@ -5377,6 +5377,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+    fetch('http://localhost:8000/api/new_deck').then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      return console.log(data);
+    });
   }
 });
 
