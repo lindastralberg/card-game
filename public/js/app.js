@@ -5379,12 +5379,20 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted.');
     this.getNewDeck();
   },
+  data: function data() {
+    return {
+      deckId: null
+    };
+  },
   methods: {
     getNewDeck: function getNewDeck() {
+      var _this = this;
+
       fetch('http://localhost:8000/api/new_deck').then(function (response) {
         return response.json();
       }).then(function (data) {
-        return console.log(data);
+        console.log(data);
+        _this.deckId = data.deck_id;
       });
     }
   }

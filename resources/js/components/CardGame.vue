@@ -10,11 +10,19 @@
             console.log('Component mounted.')
             this.getNewDeck();
         },
+        data() {
+            return {
+                deckId: null,
+            };
+        },
         methods: {
             getNewDeck() {
                 fetch('http://localhost:8000/api/new_deck')
                     .then(response => response.json())
-                    .then(data => console.log(data));
+                    .then(data => {
+                        console.log(data);
+                        this.deckId = data.deck_id;
+                    });
             }
         }
     }
