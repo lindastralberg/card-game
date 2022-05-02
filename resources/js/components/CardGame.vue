@@ -54,7 +54,7 @@
             async guessLower() {
                 await this.drawNewCard();
 
-                if (this.card.value < this.previousCard.value) {
+                if (translateValue(this.card.value) < translateValue(this.previousCard.value)) {
                     console.log('Correct!');
                 } else {
                     console.log('You lose.');
@@ -63,7 +63,7 @@
             async guessSame() {
                 await this.drawNewCard();
 
-                if (this.card.value == this.previousCard.value) {
+                if (translateValue(this.card.value) == translateValue(this.previousCard.value)) {
                     console.log('Correct!');
                 } else {
                     console.log('You lose.');
@@ -72,12 +72,26 @@
             async guessHigher() {
                 await this.drawNewCard();
 
-                if (this.card.value > this.previousCard.value) {
+                if (translateValue(this.card.value) > translateValue(this.previousCard.value)) {
                     console.log('Correct!');
                 } else {
                     console.log('You lose.');
                 }
             },
+            translateValue(value) {
+                switch(value) {
+                    case 'ACE':
+                        return 1;
+                    case 'JACK':
+                        return 11;
+                    case 'QUEEN':
+                        return 12;
+                    case 'KING':
+                        return 13;
+                    default:
+                        return value;
+                }
+            }
         }
     }
 </script>

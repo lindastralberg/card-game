@@ -202,7 +202,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this5.drawNewCard();
 
               case 2:
-                if (_this5.card.value < _this5.previousCard.value) {
+                if (translateValue(_this5.card.value) < translateValue(_this5.previousCard.value)) {
                   console.log('Correct!');
                 } else {
                   console.log('You lose.');
@@ -228,7 +228,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this6.drawNewCard();
 
               case 2:
-                if (_this6.card.value == _this6.previousCard.value) {
+                if (translateValue(_this6.card.value) == translateValue(_this6.previousCard.value)) {
                   console.log('Correct!');
                 } else {
                   console.log('You lose.');
@@ -254,7 +254,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this7.drawNewCard();
 
               case 2:
-                if (_this7.card.value > _this7.previousCard.value) {
+                if (translateValue(_this7.card.value) > translateValue(_this7.previousCard.value)) {
                   console.log('Correct!');
                 } else {
                   console.log('You lose.');
@@ -267,6 +267,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee7);
       }))();
+    },
+    translateValue: function translateValue(value) {
+      switch (value) {
+        case 'ACE':
+          return 1;
+
+        case 'JACK':
+          return 11;
+
+        case 'QUEEN':
+          return 12;
+
+        case 'KING':
+          return 13;
+
+        default:
+          return value;
+      }
     }
   }
 });
