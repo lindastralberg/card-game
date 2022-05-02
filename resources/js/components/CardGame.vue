@@ -5,6 +5,11 @@
             v-if="this.card"
             :card="this.card"
         />
+        <div class="buttons">
+            <button>Lower</button>
+            <button>Same</button>
+            <button>Higher</button>
+        </div>
     </div>
 </template>
 
@@ -47,5 +52,17 @@ h1 {
     display: grid;
     grid-column-start: 2;
     justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttons button {
+    padding: 4px 12px;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 </style>

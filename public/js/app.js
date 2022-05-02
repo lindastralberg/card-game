@@ -74,6 +74,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -236,7 +241,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1663,11 +1668,26 @@ var render = function () {
       _c("h1", [_vm._v("Card Game")]),
       _vm._v(" "),
       this.card ? _c("card", { attrs: { card: this.card } }) : _vm._e(),
+      _vm._v(" "),
+      _vm._m(0),
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "buttons" }, [
+      _c("button", [_vm._v("Lower")]),
+      _vm._v(" "),
+      _c("button", [_vm._v("Same")]),
+      _vm._v(" "),
+      _c("button", [_vm._v("Higher")]),
+    ])
+  },
+]
 render._withStripped = true
 
 
