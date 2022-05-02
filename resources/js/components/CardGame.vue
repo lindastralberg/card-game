@@ -42,7 +42,7 @@
 
 <style scoped>
 h1 {
-    font-family: 'Roboto';
+    text-align: center;
 }
 
 .container {
