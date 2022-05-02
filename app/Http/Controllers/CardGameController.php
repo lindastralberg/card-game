@@ -9,6 +9,6 @@ class CardGameController extends Controller
 {
     public function getNewDeck()
     {
-        return Http::get('https://deckofcardsapi.com/api/deck/new/');
+        return Http::get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
     }
 }
