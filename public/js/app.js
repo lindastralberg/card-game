@@ -31,14 +31,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['card'],
-  data: function data() {
-    return {
-      src: this.card.image,
-      suit: this.card.suit,
-      value: this.card.value
-    };
-  },
+  props: ['src', 'value', 'suit'],
   methods: {}
 });
 
@@ -64,6 +57,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -110,7 +105,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       deckId: null,
-      card: null
+      card: null,
+      previousCard: null
     };
   },
   methods: {
@@ -169,6 +165,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee3);
+      }))();
+    },
+    guessLower: function guessLower() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _this4.previousCard = _this4.card;
+                _context4.next = 3;
+                return _this4.drawCard();
+
+              case 3:
+                _this4.card = _context4.sent;
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   }
@@ -1678,27 +1697,28 @@ var render = function () {
     [
       _c("h1", [_vm._v("Card Game")]),
       _vm._v(" "),
-      this.card ? _c("card", { attrs: { card: this.card } }) : _vm._e(),
+      _vm.card
+        ? _c("card", {
+            attrs: {
+              src: _vm.card.image,
+              value: _vm.card.value,
+              suit: _vm.card.suit,
+            },
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "buttons" }, [
+        _c("button", { on: { click: this.guessLower } }, [_vm._v("Lower")]),
+        _vm._v(" "),
+        _c("button", [_vm._v("Same")]),
+        _vm._v(" "),
+        _c("button", [_vm._v("Higher")]),
+      ]),
     ],
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "buttons" }, [
-      _c("button", [_vm._v("Lower")]),
-      _vm._v(" "),
-      _c("button", [_vm._v("Same")]),
-      _vm._v(" "),
-      _c("button", [_vm._v("Higher")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

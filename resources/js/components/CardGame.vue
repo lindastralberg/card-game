@@ -2,11 +2,13 @@
     <div class="container">
         <h1>Card Game</h1>
         <card 
-            v-if="this.card"
-            :card="this.card"
+            v-if="card"
+            :src="card.image"
+            :value="card.value"
+            :suit="card.suit"
         />
         <div class="buttons">
-            <button>Lower</button>
+            <button @click="this.guessLower">Lower</button>
             <button>Same</button>
             <button>Higher</button>
         </div>
@@ -26,6 +28,7 @@
             return {
                 deckId: null,
                 card: null,
+                previousCard: null,
             };
         },
         methods: {
@@ -44,6 +47,10 @@
 
                 return card;
             },
+            async guessLower() {
+                this.previousCard = this.card;
+                this.card = await this.drawCard();
+            }
         }
     }
 </script>

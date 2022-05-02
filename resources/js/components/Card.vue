@@ -7,14 +7,7 @@
 
 <script>
     export default {
-        props: [ 'card' ],
-        data() {
-            return {
-                src: this.card.image,
-                suit: this.card.suit,
-                value: this.card.value,
-            };
-        },
+        props: [ 'src', 'value', 'suit' ],
         methods: {
             
         }
