@@ -3,9 +3,7 @@
         <h1>Card Game</h1>
         <card 
             v-if="this.card"
-            :src="this.card.image"
-            :value="this.card.value"
-            :suit="this.card.suit"
+            :card="this.card"
         />
     </div>
 </template>

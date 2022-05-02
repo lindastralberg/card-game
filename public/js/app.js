@@ -31,7 +31,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['src', 'suit', 'value'],
+  props: ['card'],
+  data: function data() {
+    return {
+      src: this.card.image,
+      suit: this.card.suit,
+      value: this.card.value
+    };
+  },
   methods: {}
 });
 
@@ -57,8 +64,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
 //
 //
 //
@@ -1657,15 +1662,7 @@ var render = function () {
     [
       _c("h1", [_vm._v("Card Game")]),
       _vm._v(" "),
-      this.card
-        ? _c("card", {
-            attrs: {
-              src: this.card.image,
-              value: this.card.value,
-              suit: this.card.suit,
-            },
-          })
-        : _vm._e(),
+      this.card ? _c("card", { attrs: { card: this.card } }) : _vm._e(),
     ],
     1
   )
