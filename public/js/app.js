@@ -80,6 +80,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -338,6 +342,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _PreviousCards_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PreviousCards.vue */ "./resources/js/components/PreviousCards.vue");
 //
 //
 //
@@ -351,7 +356,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['previousCards'],
+  components: {
+    PreviousCards: _PreviousCards_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      showPreviousCards: false
+    };
+  },
   methods: {
     playAgain: function playAgain() {
       this.$emit('playAgain', true);
@@ -498,7 +530,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.game-over[data-v-42f96651] {\n    width: 30em;\n    z-index: 100;\n    position: relative;\n    background-color: white;\n    border-radius: 10px;\n    padding: 10px;\n    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);\n    margin-top: 24px;\n    font-size: 14px;\n    text-align: center;\n}\n.display-previous-cards[data-v-42f96651] {\n    cursor: pointer;\n    margin-top: 22px;\n}\n.display-previous-cards[data-v-42f96651]:hover {\n    color: #575757;\n}\n.overlay[data-v-42f96651] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    background-color: rgba(0,0,0,0.7);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.game-over[data-v-42f96651] {\n    width: 30em;\n    z-index: 100;\n    position: relative;\n    background-color: white;\n    border-radius: 10px;\n    padding: 10px;\n    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);\n    margin-top: 24px;\n    font-size: 14px;\n    text-align: center;\n}\n.previous-cards-option[data-v-42f96651] {\n    cursor: pointer;\n    margin-top: 22px;\n}\n.previous-cards-option[data-v-42f96651]:hover {\n    color: #575757;\n}\n.overlay[data-v-42f96651] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    background-color: rgba(0,0,0,0.7);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2219,7 +2251,10 @@ var render = function () {
             ],
             1
           )
-        : _c("game-over", { on: { playAgain: this.restart } }),
+        : _c("game-over", {
+            attrs: { previousCards: this.previousCards },
+            on: { playAgain: this.restart },
+          }),
     ],
     1
   )
@@ -2248,17 +2283,52 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "game-over-container" }, [
-    _c("div", { staticClass: "game-over" }, [
-      _c("h1", [_vm._v("Game Over")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "buttons" }, [
-        _c("button", { on: { click: this.playAgain } }, [_vm._v("Play again")]),
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "display-previous-cards" }, [
-        _vm._v("Display previous cards"),
-      ]),
-    ]),
+    _c(
+      "div",
+      { staticClass: "game-over" },
+      [
+        _c("h1", [_vm._v("Game Over")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "buttons" }, [
+          _c("button", { on: { click: this.playAgain } }, [
+            _vm._v("Play again"),
+          ]),
+        ]),
+        _vm._v(" "),
+        !this.showPreviousCards
+          ? _c(
+              "p",
+              {
+                staticClass: "previous-cards-option",
+                on: {
+                  click: function ($event) {
+                    _vm.showPreviousCards = true
+                  },
+                },
+              },
+              [_vm._v("\n            Display previous cards\n        ")]
+            )
+          : _c(
+              "p",
+              {
+                staticClass: "previous-cards-option",
+                on: {
+                  click: function ($event) {
+                    _vm.showPreviousCards = false
+                  },
+                },
+              },
+              [_vm._v("\n            Hide previous cards\n        ")]
+            ),
+        _vm._v(" "),
+        this.showPreviousCards
+          ? _c("previous-cards", {
+              attrs: { previousCards: this.previousCards },
+            })
+          : _vm._e(),
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "overlay" }),
   ])

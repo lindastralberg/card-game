@@ -17,7 +17,11 @@
             <p>Points: {{ this.points }}</p>
             <previous-cards :previousCards="this.previousCards" />
         </div>
-        <game-over v-else @playAgain="this.restart" />
+        <game-over
+            v-else
+            :previousCards="this.previousCards"
+            @playAgain="this.restart"
+        />
     </div>
 </template>
 

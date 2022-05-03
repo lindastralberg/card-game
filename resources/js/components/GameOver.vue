@@ -5,14 +5,40 @@
             <div class="buttons">
                 <button @click="this.playAgain">Play again</button>
             </div>
-            <p class="display-previous-cards">Display previous cards</p>
+            <p 
+                v-if="!this.showPreviousCards" 
+                class="previous-cards-option"
+                @click="showPreviousCards = true"
+            >
+                Display previous cards
+            </p>
+            <p 
+                v-else 
+                class="previous-cards-option" 
+                @click="showPreviousCards = false"
+            >
+                Hide previous cards
+            </p>
+            <previous-cards
+                v-if="this.showPreviousCards"
+                :previousCards="this.previousCards"
+            />
         </div>
         <div class="overlay"></div>
     </div>
 </template>
 
 <script>
+    import PreviousCards from './PreviousCards.vue';
+
     export default {
+        props: [ 'previousCards' ],
+        components: { PreviousCards },
+        data() {
+            return {
+                showPreviousCards: false,
+            };
+        },
         methods: {
             playAgain() {
                 this.$emit('playAgain', true);
@@ -35,12 +61,12 @@
     text-align: center;
 }
 
-.display-previous-cards {
+.previous-cards-option {
     cursor: pointer;
     margin-top: 22px;
 }
 
-.display-previous-cards:hover {
+.previous-cards-option:hover {
     color: #575757;
 }
 
