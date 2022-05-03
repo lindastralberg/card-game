@@ -2,6 +2,9 @@
     <div v-else class="game-over-container">
         <div class="game-over">
             <h1>Game Over</h1>
+            <p>You guessed {{ this.lastGuess }}, <br>
+            but ACE of SPADES were LOWER <br>
+            than TWO of HEARTS</p>
             <p><b>Total points:</b> {{ this.points }}</p>
             <div class="buttons">
                 <button @click="this.playAgain">Play again</button>
@@ -33,7 +36,7 @@
     import PreviousCards from './PreviousCards.vue';
 
     export default {
-        props: [ 'points', 'previousCards' ],
+        props: [ 'lastGuess', 'points', 'previousCards' ],
         components: { PreviousCards },
         data() {
             return {

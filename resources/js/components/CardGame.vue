@@ -19,6 +19,7 @@
         </div>
         <game-over
             v-else
+            :lastGuess="this.lastGuess"
             :points="this.points"
             :previousCards="this.previousCards"
             @playAgain="this.restart"
@@ -48,6 +49,7 @@
                 previousCards: [],
                 isGameOver: false,
                 points: 0,
+                lastGuess: null,
             };
         },
         methods: {
@@ -74,6 +76,7 @@
             },
             async guessLower() {
                 await this.drawNewCard();
+                this.lastGuess = 'LOWER';
 
                 if (this.translateValue(this.currentCard.value) < this.translateValue(this.previousCard.value)) {
                     this.points++;
@@ -83,6 +86,7 @@
             },
             async guessSame() {
                 await this.drawNewCard();
+                this.lastGuess = 'SAME';
 
                 if (this.translateValue(this.currentCard.value) == this.translateValue(this.previousCard.value)) {
                     this.points++;
@@ -92,6 +96,7 @@
             },
             async guessHigher() {
                 await this.drawNewCard();
+                this.lastGuess = 'HIGHER';
 
                 if (this.translateValue(this.currentCard.value) > this.translateValue(this.previousCard.value)) {
                     this.points++;

@@ -85,6 +85,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -119,7 +120,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       previousCard: null,
       previousCards: [],
       isGameOver: false,
-      points: 0
+      points: 0,
+      lastGuess: null
     };
   },
   methods: {
@@ -217,13 +219,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this5.drawNewCard();
 
               case 2:
+                _this5.lastGuess = 'LOWER';
+
                 if (_this5.translateValue(_this5.currentCard.value) < _this5.translateValue(_this5.previousCard.value)) {
                   _this5.points++;
                 } else {
                   _this5.gameOver();
                 }
 
-              case 3:
+              case 4:
               case "end":
                 return _context5.stop();
             }
@@ -243,13 +247,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this6.drawNewCard();
 
               case 2:
+                _this6.lastGuess = 'SAME';
+
                 if (_this6.translateValue(_this6.currentCard.value) == _this6.translateValue(_this6.previousCard.value)) {
                   _this6.points++;
                 } else {
                   _this6.gameOver();
                 }
 
-              case 3:
+              case 4:
               case "end":
                 return _context6.stop();
             }
@@ -269,13 +275,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this7.drawNewCard();
 
               case 2:
+                _this7.lastGuess = 'HIGHER';
+
                 if (_this7.translateValue(_this7.currentCard.value) > _this7.translateValue(_this7.previousCard.value)) {
                   _this7.points++;
                 } else {
                   _this7.gameOver();
                 }
 
-              case 3:
+              case 4:
               case "end":
                 return _context7.stop();
             }
@@ -375,9 +383,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['points', 'previousCards'],
+  props: ['lastGuess', 'points', 'previousCards'],
   components: {
     PreviousCards: _PreviousCards_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -2254,7 +2265,11 @@ var render = function () {
             1
           )
         : _c("game-over", {
-            attrs: { points: this.points, previousCards: this.previousCards },
+            attrs: {
+              lastGuess: this.lastGuess,
+              points: this.points,
+              previousCards: this.previousCards,
+            },
             on: { playAgain: this.restart },
           }),
     ],
@@ -2290,6 +2305,14 @@ var render = function () {
       { staticClass: "game-over" },
       [
         _c("h1", [_vm._v("Game Over")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("You guessed " + _vm._s(this.lastGuess) + ", "),
+          _c("br"),
+          _vm._v("\n        but ACE of SPADES were LOWER "),
+          _c("br"),
+          _vm._v("\n        than TWO of HEARTS"),
+        ]),
         _vm._v(" "),
         _c("p", [
           _c("b", [_vm._v("Total points:")]),
