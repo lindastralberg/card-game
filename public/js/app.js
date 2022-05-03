@@ -212,11 +212,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 if (_this5.translateValue(_this5.card.value) < _this5.translateValue(_this5.previousCard.value)) {
-                  console.log('Correct!');
                   _this5.points++;
                 } else {
-                  console.log('You lose.');
-
                   _this5.gameOver();
                 }
 
@@ -241,11 +238,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 if (_this6.translateValue(_this6.card.value) == _this6.translateValue(_this6.previousCard.value)) {
-                  console.log('Correct!');
                   _this6.points++;
                 } else {
-                  console.log('You lose.');
-
                   _this6.gameOver();
                 }
 
@@ -270,11 +264,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 if (_this7.translateValue(_this7.card.value) > _this7.translateValue(_this7.previousCard.value)) {
-                  console.log('Correct!');
                   _this7.points++;
                 } else {
-                  console.log('You lose.');
-
                   _this7.gameOver();
                 }
 

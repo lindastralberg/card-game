@@ -68,10 +68,8 @@
                 await this.drawNewCard();
 
                 if (this.translateValue(this.card.value) < this.translateValue(this.previousCard.value)) {
-                    console.log('Correct!');
                     this.points++;
                 } else {
-                    console.log('You lose.');
                     this.gameOver();
                 }
             },
@@ -79,10 +77,8 @@
                 await this.drawNewCard();
 
                 if (this.translateValue(this.card.value) == this.translateValue(this.previousCard.value)) {
-                    console.log('Correct!');
                     this.points++;
                 } else {
-                    console.log('You lose.');
                     this.gameOver();
                 }
             },
@@ -90,10 +86,8 @@
                 await this.drawNewCard();
 
                 if (this.translateValue(this.card.value) > this.translateValue(this.previousCard.value)) {
-                    console.log('Correct!');
                     this.points++;
                 } else {
-                    console.log('You lose.');
                     this.gameOver();
                 }
             },
