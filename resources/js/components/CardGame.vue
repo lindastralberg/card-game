@@ -96,7 +96,6 @@
                 this.isGameOver = false;
 
                 await this.getNewDeck();
-                await this.drawCard();
             },
             translateValue(value) {
                 switch(value) {
