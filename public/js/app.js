@@ -84,6 +84,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -442,7 +446,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n.game-over[data-v-673e30e6] {\n    width: 30em;\n    z-index: 100;\n    position: relative;\n    background-color: white;\n    border-radius: 10px;\n    padding: 10px;\n    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);\n    margin-top: 24px;\n    font-size: 14px;\n    text-align: center;\n}\n.display-previous-cards[data-v-673e30e6] {\n    cursor: pointer;\n    margin-top: 22px;\n}\n.display-previous-cards[data-v-673e30e6]:hover {\n    color: #575757;\n}\n.overlay[data-v-673e30e6] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    background-color: rgba(0,0,0,0.7);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2042,13 +2046,21 @@ var render = function () {
           1
         )
       : _c("div", { staticClass: "game-over-container" }, [
-          _c("h1", [_vm._v("Game Over")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "buttons" }, [
-            _c("button", { on: { click: this.restart } }, [
-              _vm._v("Play again"),
+          _c("div", { staticClass: "game-over" }, [
+            _c("h1", [_vm._v("Game Over")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "buttons" }, [
+              _c("button", { on: { click: this.restart } }, [
+                _vm._v("Play again"),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "display-previous-cards" }, [
+              _vm._v("Display previous cards"),
             ]),
           ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "overlay" }),
         ]),
   ])
 }
