@@ -126,7 +126,7 @@
                     case 'KING':
                         return 13;
                     default:
-                        return value;
+                        return parseInt(value);
                 }
             }
         }

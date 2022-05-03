@@ -329,7 +329,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           return 13;
 
         default:
-          return value;
+          return parseInt(value);
       }
     }
   }
