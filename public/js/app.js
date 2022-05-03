@@ -95,10 +95,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return _this.getNewDeck();
+              _this.restart();
 
-            case 2:
+            case 1:
             case "end":
               return _context.stop();
           }
@@ -111,6 +110,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       deckId: null,
       card: null,
       previousCard: null,
+      previousCards: [],
       isGameOver: false
     };
   },
@@ -162,9 +162,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 2:
+                _this3.previousCards.push(card);
+
                 return _context3.abrupt("return", card);
 
-              case 3:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -291,10 +293,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context8.prev = _context8.next) {
               case 0:
                 _this8.isGameOver = false;
-                _context8.next = 3;
+                _this8.previousCards = [];
+                _this8.previousCard = null;
+                _context8.next = 5;
                 return _this8.getNewDeck();
 
-              case 3:
+              case 5:
               case "end":
                 return _context8.stop();
             }

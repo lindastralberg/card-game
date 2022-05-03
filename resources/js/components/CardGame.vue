@@ -36,6 +36,7 @@
                 deckId: null,
                 card: null,
                 previousCard: null,
+                previousCards: [],
                 isGameOver: false,
             };
         },
@@ -52,6 +53,8 @@
                 await fetch(`http://localhost:8000/api/${this.deckId}/draw`)
                     .then(response => response.json())
                     .then(data => card = data.cards[0]);
+
+                this.previousCards.push(card);
 
                 return card;
             },
@@ -94,6 +97,8 @@
             },
             async restart() {
                 this.isGameOver = false;
+                this.previousCards = [];
+                this.previousCard = null;
 
                 await this.getNewDeck();
             },
