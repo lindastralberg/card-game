@@ -13,6 +13,7 @@
                 <button @click="this.guessSame">Same</button>
                 <button @click="this.guessHigher">Higher</button>
             </div>
+            <p>Points: {{ this.points }}</p>
         </div>
         <div v-else class="game-over-container">
             <h1>Game Over</h1>
@@ -38,6 +39,7 @@
                 previousCard: null,
                 previousCards: [],
                 isGameOver: false,
+                points: 0,
             };
         },
         methods: {
@@ -67,6 +69,7 @@
 
                 if (this.translateValue(this.card.value) < this.translateValue(this.previousCard.value)) {
                     console.log('Correct!');
+                    this.points++;
                 } else {
                     console.log('You lose.');
                     this.gameOver();
@@ -77,6 +80,7 @@
 
                 if (this.translateValue(this.card.value) == this.translateValue(this.previousCard.value)) {
                     console.log('Correct!');
+                    this.points++;
                 } else {
                     console.log('You lose.');
                     this.gameOver();
@@ -87,6 +91,7 @@
 
                 if (this.translateValue(this.card.value) > this.translateValue(this.previousCard.value)) {
                     console.log('Correct!');
+                    this.points++;
                 } else {
                     console.log('You lose.');
                     this.gameOver();
@@ -99,6 +104,7 @@
                 this.isGameOver = false;
                 this.previousCards = [];
                 this.previousCard = null;
+                this.points = 0;
 
                 await this.getNewDeck();
             },

@@ -82,6 +82,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -111,7 +112,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       card: null,
       previousCard: null,
       previousCards: [],
-      isGameOver: false
+      isGameOver: false,
+      points: 0
     };
   },
   methods: {
@@ -211,6 +213,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 if (_this5.translateValue(_this5.card.value) < _this5.translateValue(_this5.previousCard.value)) {
                   console.log('Correct!');
+                  _this5.points++;
                 } else {
                   console.log('You lose.');
 
@@ -239,6 +242,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 if (_this6.translateValue(_this6.card.value) == _this6.translateValue(_this6.previousCard.value)) {
                   console.log('Correct!');
+                  _this6.points++;
                 } else {
                   console.log('You lose.');
 
@@ -267,6 +271,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 if (_this7.translateValue(_this7.card.value) > _this7.translateValue(_this7.previousCard.value)) {
                   console.log('Correct!');
+                  _this7.points++;
                 } else {
                   console.log('You lose.');
 
@@ -295,10 +300,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this8.isGameOver = false;
                 _this8.previousCards = [];
                 _this8.previousCard = null;
-                _context8.next = 5;
+                _this8.points = 0;
+                _context8.next = 6;
                 return _this8.getNewDeck();
 
-              case 5:
+              case 6:
               case "end":
                 return _context8.stop();
             }
@@ -1853,6 +1859,8 @@ var render = function () {
                 _vm._v("Higher"),
               ]),
             ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Points: " + _vm._s(this.points))]),
           ],
           1
         )
