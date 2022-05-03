@@ -19,6 +19,7 @@
         </div>
         <game-over
             v-else
+            :points="this.points"
             :previousCards="this.previousCards"
             @playAgain="this.restart"
         />
