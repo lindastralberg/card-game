@@ -7,6 +7,7 @@
                 :src="currentCard.image"
                 :value="currentCard.value"
                 :suit="currentCard.suit"
+                :previous="false"
             />
             <div class="buttons">
                 <button @click="this.guessLower">Lower</button>
@@ -20,6 +21,16 @@
             <div class="buttons">
                 <button @click="this.restart">Play again</button>
             </div>
+        </div>
+        <h2>Previous cards</h2>
+        <div class="previous-cards-container">
+            <card v-for="card in this.previousCards"
+                :key="card.code"
+                :src="card.image"
+                :value="card.value"
+                :suit="card.suit"
+                :previous="true"
+            />
         </div>
     </div>
 </template>
@@ -141,5 +152,11 @@ h1 {
     padding: 4px 12px;
     box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
     cursor: pointer;
+}
+
+.previous-cards-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, auto);
 }
 </style>

@@ -29,10 +29,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['src', 'value', 'suit'],
-  methods: {}
+  props: ['src', 'value', 'suit', 'previous']
 });
 
 /***/ }),
@@ -57,6 +55,17 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -378,7 +387,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-text[data-v-b9bc2c0a] {\n    text-align: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.card-text[data-v-b9bc2c0a] {\n    text-align: center;\n}\n.small-card[data-v-b9bc2c0a] {\n    width: 100px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -402,7 +411,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n.previous-cards-container[data-v-673e30e6] {\n    display: grid;\n    grid-gap: 10px;\n    grid-template-columns: repeat(2, auto);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1792,11 +1801,10 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card-container" }, [
-    _c("img", { attrs: { src: this.src } }),
-    _vm._v(" "),
-    _c("p", { staticClass: "card-text" }, [
-      _vm._v(_vm._s(this.value) + " of " + _vm._s(this.suit)),
-    ]),
+    _c("img", {
+      class: { "small-card": _vm.previous },
+      attrs: { src: this.src },
+    }),
   ])
 }
 var staticRenderFns = []
@@ -1835,6 +1843,7 @@ var render = function () {
                     src: _vm.currentCard.image,
                     value: _vm.currentCard.value,
                     suit: _vm.currentCard.suit,
+                    previous: false,
                   },
                 })
               : _vm._e(),
@@ -1864,6 +1873,25 @@ var render = function () {
             ]),
           ]),
         ]),
+    _vm._v(" "),
+    _c("h2", [_vm._v("Previous cards")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "previous-cards-container" },
+      _vm._l(this.previousCards, function (card) {
+        return _c("card", {
+          key: card.code,
+          attrs: {
+            src: card.image,
+            value: card.value,
+            suit: card.suit,
+            previous: true,
+          },
+        })
+      }),
+      1
+    ),
   ])
 }
 var staticRenderFns = []
