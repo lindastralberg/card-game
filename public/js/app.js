@@ -50,6 +50,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Card_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card.vue */ "./resources/js/components/Card.vue");
 /* harmony import */ var _PreviousCards_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PreviousCards.vue */ "./resources/js/components/PreviousCards.vue");
+/* harmony import */ var _GameOver_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GameOver.vue */ "./resources/js/components/GameOver.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -79,21 +80,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Card: _Card_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    PreviousCards: _PreviousCards_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    PreviousCards: _PreviousCards_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    GameOver: _GameOver_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   mounted: function mounted() {
     var _this = this;
@@ -333,6 +327,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    playAgain: function playAgain() {
+      this.$emit('playAgain', true);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PreviousCards.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PreviousCards.vue?vue&type=script&lang=js& ***!
@@ -446,7 +474,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n.game-over[data-v-673e30e6] {\n    width: 30em;\n    z-index: 100;\n    position: relative;\n    background-color: white;\n    border-radius: 10px;\n    padding: 10px;\n    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);\n    margin-top: 24px;\n    font-size: 14px;\n    text-align: center;\n}\n.display-previous-cards[data-v-673e30e6] {\n    cursor: pointer;\n    margin-top: 22px;\n}\n.display-previous-cards[data-v-673e30e6]:hover {\n    color: #575757;\n}\n.overlay[data-v-673e30e6] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    background-color: rgba(0,0,0,0.7);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.game-over[data-v-42f96651] {\n    width: 30em;\n    z-index: 100;\n    position: relative;\n    background-color: white;\n    border-radius: 10px;\n    padding: 10px;\n    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);\n    margin-top: 24px;\n    font-size: 14px;\n    text-align: center;\n}\n.display-previous-cards[data-v-42f96651] {\n    cursor: pointer;\n    margin-top: 22px;\n}\n.display-previous-cards[data-v-42f96651]:hover {\n    color: #575757;\n}\n.overlay[data-v-42f96651] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    background-color: rgba(0,0,0,0.7);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1390,6 +1442,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_style_index_0_id_42f96651_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_style_index_0_id_42f96651_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_style_index_0_id_42f96651_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PreviousCards.vue?vue&type=style&index=0&id=ca33375e&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PreviousCards.vue?vue&type=style&index=0&id=ca33375e&scoped=true&lang=css& ***!
@@ -1781,6 +1863,47 @@ component.options.__file = "resources/js/components/CardGame.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/GameOver.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/GameOver.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GameOver_vue_vue_type_template_id_42f96651_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameOver.vue?vue&type=template&id=42f96651&scoped=true& */ "./resources/js/components/GameOver.vue?vue&type=template&id=42f96651&scoped=true&");
+/* harmony import */ var _GameOver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameOver.vue?vue&type=script&lang=js& */ "./resources/js/components/GameOver.vue?vue&type=script&lang=js&");
+/* harmony import */ var _GameOver_vue_vue_type_style_index_0_id_42f96651_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css& */ "./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _GameOver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GameOver_vue_vue_type_template_id_42f96651_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _GameOver_vue_vue_type_template_id_42f96651_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "42f96651",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GameOver.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/PreviousCards.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/PreviousCards.vue ***!
@@ -1854,6 +1977,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/GameOver.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/GameOver.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameOver.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/PreviousCards.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/PreviousCards.vue?vue&type=script&lang=js& ***!
@@ -1892,6 +2031,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CardGame_vue_vue_type_style_index_0_id_673e30e6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardGame.vue?vue&type=style&index=0&id=673e30e6&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardGame.vue?vue&type=style&index=0&id=673e30e6&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_style_index_0_id_42f96651_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=style&index=0&id=42f96651&scoped=true&lang=css&");
 
 
 /***/ }),
@@ -1939,6 +2091,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardGame_vue_vue_type_template_id_673e30e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardGame_vue_vue_type_template_id_673e30e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CardGame.vue?vue&type=template&id=673e30e6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardGame.vue?vue&type=template&id=673e30e6&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/GameOver.vue?vue&type=template&id=42f96651&scoped=true&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/GameOver.vue?vue&type=template&id=42f96651&scoped=true& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_template_id_42f96651_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_template_id_42f96651_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameOver_vue_vue_type_template_id_42f96651_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameOver.vue?vue&type=template&id=42f96651&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=template&id=42f96651&scoped=true&");
 
 
 /***/ }),
@@ -2006,62 +2175,92 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h1", [_vm._v("Card Game")]),
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h1", [_vm._v("Card Game")]),
+      _vm._v(" "),
+      !_vm.isGameOver
+        ? _c(
+            "div",
+            { staticClass: "game-container" },
+            [
+              _vm.currentCard
+                ? _c("card", {
+                    attrs: {
+                      src: _vm.currentCard.image,
+                      value: _vm.currentCard.value,
+                      suit: _vm.currentCard.suit,
+                      previous: false,
+                    },
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "buttons" }, [
+                _c("button", { on: { click: this.guessLower } }, [
+                  _vm._v("Lower"),
+                ]),
+                _vm._v(" "),
+                _c("button", { on: { click: this.guessSame } }, [
+                  _vm._v("Same"),
+                ]),
+                _vm._v(" "),
+                _c("button", { on: { click: this.guessHigher } }, [
+                  _vm._v("Higher"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Points: " + _vm._s(this.points))]),
+              _vm._v(" "),
+              _c("previous-cards", {
+                attrs: { previousCards: this.previousCards },
+              }),
+            ],
+            1
+          )
+        : _c("game-over", { on: { playAgain: this.restart } }),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=template&id=42f96651&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameOver.vue?vue&type=template&id=42f96651&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "game-over-container" }, [
+    _c("div", { staticClass: "game-over" }, [
+      _c("h1", [_vm._v("Game Over")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "buttons" }, [
+        _c("button", { on: { click: this.playAgain } }, [_vm._v("Play again")]),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "display-previous-cards" }, [
+        _vm._v("Display previous cards"),
+      ]),
+    ]),
     _vm._v(" "),
-    !_vm.isGameOver
-      ? _c(
-          "div",
-          { staticClass: "game-container" },
-          [
-            _vm.currentCard
-              ? _c("card", {
-                  attrs: {
-                    src: _vm.currentCard.image,
-                    value: _vm.currentCard.value,
-                    suit: _vm.currentCard.suit,
-                    previous: false,
-                  },
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "buttons" }, [
-              _c("button", { on: { click: this.guessLower } }, [
-                _vm._v("Lower"),
-              ]),
-              _vm._v(" "),
-              _c("button", { on: { click: this.guessSame } }, [_vm._v("Same")]),
-              _vm._v(" "),
-              _c("button", { on: { click: this.guessHigher } }, [
-                _vm._v("Higher"),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Points: " + _vm._s(this.points))]),
-            _vm._v(" "),
-            _c("previous-cards", {
-              attrs: { previousCards: this.previousCards },
-            }),
-          ],
-          1
-        )
-      : _c("div", { staticClass: "game-over-container" }, [
-          _c("div", { staticClass: "game-over" }, [
-            _c("h1", [_vm._v("Game Over")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "buttons" }, [
-              _c("button", { on: { click: this.restart } }, [
-                _vm._v("Play again"),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "display-previous-cards" }, [
-              _vm._v("Display previous cards"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "overlay" }),
-        ]),
+    _c("div", { staticClass: "overlay" }),
   ])
 }
 var staticRenderFns = []
