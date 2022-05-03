@@ -15,18 +15,7 @@
                 <button @click="this.guessHigher">Higher</button>
             </div>
             <p>Points: {{ this.points }}</p>
-            <div class="previous-cards-container">
-                <h2>Previous cards</h2>
-                <div class="previous-cards">
-                    <card v-for="card in this.previousCards"
-                        :key="card.code"
-                        :src="card.image"
-                        :value="card.value"
-                        :suit="card.suit"
-                        :previous="true"
-                    />
-                </div>
-            </div>
+            <previous-cards :previousCards="this.previousCards" />
         </div>
         <div v-else class="game-over-container">
             <h1>Game Over</h1>
@@ -39,9 +28,13 @@
 
 <script>
     import Card from './Card.vue';
+    import PreviousCards from './PreviousCards.vue';
 
     export default {
-        components: { Card },
+        components: {
+            Card,
+            PreviousCards,
+        },
         async mounted() {
             this.restart();
         },
@@ -154,11 +147,5 @@ h1 {
     padding: 4px 12px;
     box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
     cursor: pointer;
-}
-
-.previous-cards {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(2, auto);
 }
 </style>
