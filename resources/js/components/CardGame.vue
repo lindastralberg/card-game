@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h1>Card Game</h1>
-        <div v-if="!isGameOver">
+        <div v-if="!isGameOver" class="game-container">
             <card 
                 v-if="currentCard"
                 :src="currentCard.image"
@@ -15,23 +15,23 @@
                 <button @click="this.guessHigher">Higher</button>
             </div>
             <p>Points: {{ this.points }}</p>
+            <div class="previous-cards-container">
+                <h2>Previous cards</h2>
+                <div class="previous-cards">
+                    <card v-for="card in this.previousCards"
+                        :key="card.code"
+                        :src="card.image"
+                        :value="card.value"
+                        :suit="card.suit"
+                        :previous="true"
+                    />
+                </div>
+            </div>
         </div>
         <div v-else class="game-over-container">
             <h1>Game Over</h1>
             <div class="buttons">
                 <button @click="this.restart">Play again</button>
-            </div>
-        </div>
-        <div class="previous-cards-container">
-            <h2>Previous cards</h2>
-            <div class="previous-cards">
-                <card v-for="card in this.previousCards"
-                    :key="card.code"
-                    :src="card.image"
-                    :value="card.value"
-                    :suit="card.suit"
-                    :previous="true"
-                />
             </div>
         </div>
     </div>

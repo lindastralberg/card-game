@@ -1838,6 +1838,7 @@ var render = function () {
     !_vm.isGameOver
       ? _c(
           "div",
+          { staticClass: "game-container" },
           [
             _vm.currentCard
               ? _c("card", {
@@ -1863,6 +1864,27 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("p", [_vm._v("Points: " + _vm._s(this.points))]),
+            _vm._v(" "),
+            _c("div", { staticClass: "previous-cards-container" }, [
+              _c("h2", [_vm._v("Previous cards")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "previous-cards" },
+                _vm._l(this.previousCards, function (card) {
+                  return _c("card", {
+                    key: card.code,
+                    attrs: {
+                      src: card.image,
+                      value: card.value,
+                      suit: card.suit,
+                      previous: true,
+                    },
+                  })
+                }),
+                1
+              ),
+            ]),
           ],
           1
         )
@@ -1875,27 +1897,6 @@ var render = function () {
             ]),
           ]),
         ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "previous-cards-container" }, [
-      _c("h2", [_vm._v("Previous cards")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "previous-cards" },
-        _vm._l(this.previousCards, function (card) {
-          return _c("card", {
-            key: card.code,
-            attrs: {
-              src: card.image,
-              value: card.value,
-              suit: card.suit,
-              previous: true,
-            },
-          })
-        }),
-        1
-      ),
-    ]),
   ])
 }
 var staticRenderFns = []
