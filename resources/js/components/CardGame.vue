@@ -16,6 +16,9 @@
         </div>
         <div v-else class="game-over-container">
             <h1>Game Over</h1>
+            <div class="buttons">
+                <button @click="this.restart">Play again</button>
+            </div>
         </div>
     </div>
 </template>
@@ -26,8 +29,7 @@
     export default {
         components: { Card },
         async mounted() {
-            await this.getNewDeck();
-            await this.drawCard();
+            this.restart();
         },
         data() {
             return {
@@ -89,6 +91,12 @@
             },
             gameOver() {
                 this.isGameOver = true;
+            },
+            async restart() {
+                this.isGameOver = false;
+
+                await this.getNewDeck();
+                await this.drawCard();
             },
             translateValue(value) {
                 switch(value) {

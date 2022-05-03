@@ -79,6 +79,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -92,14 +95,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return _this.getNewDeck();
+              _this.restart();
 
-            case 2:
-              _context.next = 4;
-              return _this.drawCard();
-
-            case 4:
+            case 1:
             case "end":
               return _context.stop();
           }
@@ -282,6 +280,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     gameOver: function gameOver() {
       this.isGameOver = true;
+    },
+    restart: function restart() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _this8.isGameOver = false;
+                _context8.next = 3;
+                return _this8.getNewDeck();
+
+              case 3:
+                _context8.next = 5;
+                return _this8.drawCard();
+
+              case 5:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
     },
     translateValue: function translateValue(value) {
       switch (value) {
@@ -1835,6 +1857,12 @@ var render = function () {
         )
       : _c("div", { staticClass: "game-over-container" }, [
           _c("h1", [_vm._v("Game Over")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "buttons" }, [
+            _c("button", { on: { click: this.restart } }, [
+              _vm._v("Play again"),
+            ]),
+          ]),
         ]),
   ])
 }
