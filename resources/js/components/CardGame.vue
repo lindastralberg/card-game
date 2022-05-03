@@ -1,16 +1,21 @@
 <template>
     <div class="container">
         <h1>Card Game</h1>
-        <card 
-            v-if="card"
-            :src="card.image"
-            :value="card.value"
-            :suit="card.suit"
-        />
-        <div class="buttons">
-            <button @click="this.guessLower">Lower</button>
-            <button @click="this.guessSame">Same</button>
-            <button @click="this.guessHigher">Higher</button>
+        <div v-if="!isGameOver">
+            <card 
+                v-if="card"
+                :src="card.image"
+                :value="card.value"
+                :suit="card.suit"
+            />
+            <div class="buttons">
+                <button @click="this.guessLower">Lower</button>
+                <button @click="this.guessSame">Same</button>
+                <button @click="this.guessHigher">Higher</button>
+            </div>
+        </div>
+        <div v-else class="game-over-container">
+            <h1>Game Over</h1>
         </div>
     </div>
 </template>
@@ -29,6 +34,7 @@
                 deckId: null,
                 card: null,
                 previousCard: null,
+                isGameOver: false,
             };
         },
         methods: {
@@ -54,29 +60,35 @@
             async guessLower() {
                 await this.drawNewCard();
 
-                if (translateValue(this.card.value) < translateValue(this.previousCard.value)) {
+                if (this.translateValue(this.card.value) < this.translateValue(this.previousCard.value)) {
                     console.log('Correct!');
                 } else {
                     console.log('You lose.');
+                    this.gameOver();
                 }
             },
             async guessSame() {
                 await this.drawNewCard();
 
-                if (translateValue(this.card.value) == translateValue(this.previousCard.value)) {
+                if (this.translateValue(this.card.value) == this.translateValue(this.previousCard.value)) {
                     console.log('Correct!');
                 } else {
                     console.log('You lose.');
+                    this.gameOver();
                 }
             },
             async guessHigher() {
                 await this.drawNewCard();
 
-                if (translateValue(this.card.value) > translateValue(this.previousCard.value)) {
+                if (this.translateValue(this.card.value) > this.translateValue(this.previousCard.value)) {
                     console.log('Correct!');
                 } else {
                     console.log('You lose.');
+                    this.gameOver();
                 }
+            },
+            gameOver() {
+                this.isGameOver = true;
             },
             translateValue(value) {
                 switch(value) {

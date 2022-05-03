@@ -74,6 +74,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -106,7 +111,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       deckId: null,
       card: null,
-      previousCard: null
+      previousCard: null,
+      isGameOver: false
     };
   },
   methods: {
@@ -202,10 +208,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this5.drawNewCard();
 
               case 2:
-                if (translateValue(_this5.card.value) < translateValue(_this5.previousCard.value)) {
+                if (_this5.translateValue(_this5.card.value) < _this5.translateValue(_this5.previousCard.value)) {
                   console.log('Correct!');
                 } else {
                   console.log('You lose.');
+
+                  _this5.gameOver();
                 }
 
               case 3:
@@ -228,10 +236,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this6.drawNewCard();
 
               case 2:
-                if (translateValue(_this6.card.value) == translateValue(_this6.previousCard.value)) {
+                if (_this6.translateValue(_this6.card.value) == _this6.translateValue(_this6.previousCard.value)) {
                   console.log('Correct!');
                 } else {
                   console.log('You lose.');
+
+                  _this6.gameOver();
                 }
 
               case 3:
@@ -254,10 +264,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this7.drawNewCard();
 
               case 2:
-                if (translateValue(_this7.card.value) > translateValue(_this7.previousCard.value)) {
+                if (_this7.translateValue(_this7.card.value) > _this7.translateValue(_this7.previousCard.value)) {
                   console.log('Correct!');
                 } else {
                   console.log('You lose.');
+
+                  _this7.gameOver();
                 }
 
               case 3:
@@ -267,6 +279,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee7);
       }))();
+    },
+    gameOver: function gameOver() {
+      this.isGameOver = true;
     },
     translateValue: function translateValue(value) {
       switch (value) {
@@ -1787,32 +1802,41 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h1", [_vm._v("Card Game")]),
-      _vm._v(" "),
-      _vm.card
-        ? _c("card", {
-            attrs: {
-              src: _vm.card.image,
-              value: _vm.card.value,
-              suit: _vm.card.suit,
-            },
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "buttons" }, [
-        _c("button", { on: { click: this.guessLower } }, [_vm._v("Lower")]),
-        _vm._v(" "),
-        _c("button", { on: { click: this.guessSame } }, [_vm._v("Same")]),
-        _vm._v(" "),
-        _c("button", { on: { click: this.guessHigher } }, [_vm._v("Higher")]),
-      ]),
-    ],
-    1
-  )
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", [_vm._v("Card Game")]),
+    _vm._v(" "),
+    !_vm.isGameOver
+      ? _c(
+          "div",
+          [
+            _vm.card
+              ? _c("card", {
+                  attrs: {
+                    src: _vm.card.image,
+                    value: _vm.card.value,
+                    suit: _vm.card.suit,
+                  },
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "buttons" }, [
+              _c("button", { on: { click: this.guessLower } }, [
+                _vm._v("Lower"),
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: this.guessSame } }, [_vm._v("Same")]),
+              _vm._v(" "),
+              _c("button", { on: { click: this.guessHigher } }, [
+                _vm._v("Higher"),
+              ]),
+            ]),
+          ],
+          1
+        )
+      : _c("div", { staticClass: "game-over-container" }, [
+          _c("h1", [_vm._v("Game Over")]),
+        ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
