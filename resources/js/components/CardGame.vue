@@ -3,10 +3,10 @@
         <h1>Card Game</h1>
         <div v-if="!isGameOver">
             <card 
-                v-if="card"
-                :src="card.image"
-                :value="card.value"
-                :suit="card.suit"
+                v-if="currentCard"
+                :src="currentCard.image"
+                :value="currentCard.value"
+                :suit="currentCard.suit"
             />
             <div class="buttons">
                 <button @click="this.guessLower">Lower</button>
@@ -35,7 +35,7 @@
         data() {
             return {
                 deckId: null,
-                card: null,
+                currentCard: null,
                 previousCard: null,
                 previousCards: [],
                 isGameOver: false,
@@ -48,7 +48,7 @@
                     .then(response => response.json())
                     .then(data => this.deckId = data.deck_id);
 
-                this.card = await this.drawCard();
+                this.currentCard = await this.drawCard();
             },
             async drawCard() {
                 let card;
@@ -61,13 +61,13 @@
                 return card;
             },
             async drawNewCard() {
-                this.previousCard = this.card;
-                this.card = await this.drawCard();
+                this.previousCard = this.currentCard;
+                this.currentCard = await this.drawCard();
             },
             async guessLower() {
                 await this.drawNewCard();
 
-                if (this.translateValue(this.card.value) < this.translateValue(this.previousCard.value)) {
+                if (this.translateValue(this.currentCard.value) < this.translateValue(this.previousCard.value)) {
                     this.points++;
                 } else {
                     this.gameOver();
@@ -76,7 +76,7 @@
             async guessSame() {
                 await this.drawNewCard();
 
-                if (this.translateValue(this.card.value) == this.translateValue(this.previousCard.value)) {
+                if (this.translateValue(this.currentCard.value) == this.translateValue(this.previousCard.value)) {
                     this.points++;
                 } else {
                     this.gameOver();
@@ -85,7 +85,7 @@
             async guessHigher() {
                 await this.drawNewCard();
 
-                if (this.translateValue(this.card.value) > this.translateValue(this.previousCard.value)) {
+                if (this.translateValue(this.currentCard.value) > this.translateValue(this.previousCard.value)) {
                     this.points++;
                 } else {
                     this.gameOver();

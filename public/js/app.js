@@ -109,7 +109,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       deckId: null,
-      card: null,
+      currentCard: null,
       previousCard: null,
       previousCards: [],
       isGameOver: false,
@@ -137,7 +137,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this2.drawCard();
 
               case 4:
-                _this2.card = _context2.sent;
+                _this2.currentCard = _context2.sent;
 
               case 5:
               case "end":
@@ -184,12 +184,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _this4.previousCard = _this4.card;
+                _this4.previousCard = _this4.currentCard;
                 _context4.next = 3;
                 return _this4.drawCard();
 
               case 3:
-                _this4.card = _context4.sent;
+                _this4.currentCard = _context4.sent;
 
               case 4:
               case "end":
@@ -211,7 +211,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this5.drawNewCard();
 
               case 2:
-                if (_this5.translateValue(_this5.card.value) < _this5.translateValue(_this5.previousCard.value)) {
+                if (_this5.translateValue(_this5.currentCard.value) < _this5.translateValue(_this5.previousCard.value)) {
                   _this5.points++;
                 } else {
                   _this5.gameOver();
@@ -237,7 +237,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this6.drawNewCard();
 
               case 2:
-                if (_this6.translateValue(_this6.card.value) == _this6.translateValue(_this6.previousCard.value)) {
+                if (_this6.translateValue(_this6.currentCard.value) == _this6.translateValue(_this6.previousCard.value)) {
                   _this6.points++;
                 } else {
                   _this6.gameOver();
@@ -263,7 +263,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this7.drawNewCard();
 
               case 2:
-                if (_this7.translateValue(_this7.card.value) > _this7.translateValue(_this7.previousCard.value)) {
+                if (_this7.translateValue(_this7.currentCard.value) > _this7.translateValue(_this7.previousCard.value)) {
                   _this7.points++;
                 } else {
                   _this7.gameOver();
@@ -1829,12 +1829,12 @@ var render = function () {
       ? _c(
           "div",
           [
-            _vm.card
+            _vm.currentCard
               ? _c("card", {
                   attrs: {
-                    src: _vm.card.image,
-                    value: _vm.card.value,
-                    suit: _vm.card.suit,
+                    src: _vm.currentCard.image,
+                    value: _vm.currentCard.value,
+                    suit: _vm.currentCard.suit,
                   },
                 })
               : _vm._e(),
