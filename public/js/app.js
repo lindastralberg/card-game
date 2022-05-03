@@ -92,6 +92,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -411,7 +413,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n.previous-cards-container[data-v-673e30e6] {\n    display: grid;\n    grid-gap: 10px;\n    grid-template-columns: repeat(2, auto);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-673e30e6] {\n    text-align: center;\n}\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n.previous-cards[data-v-673e30e6] {\n    display: grid;\n    grid-gap: 10px;\n    grid-template-columns: repeat(2, auto);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1874,24 +1876,26 @@ var render = function () {
           ]),
         ]),
     _vm._v(" "),
-    _c("h2", [_vm._v("Previous cards")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "previous-cards-container" },
-      _vm._l(this.previousCards, function (card) {
-        return _c("card", {
-          key: card.code,
-          attrs: {
-            src: card.image,
-            value: card.value,
-            suit: card.suit,
-            previous: true,
-          },
-        })
-      }),
-      1
-    ),
+    _c("div", { staticClass: "previous-cards-container" }, [
+      _c("h2", [_vm._v("Previous cards")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "previous-cards" },
+        _vm._l(this.previousCards, function (card) {
+          return _c("card", {
+            key: card.code,
+            attrs: {
+              src: card.image,
+              value: card.value,
+              suit: card.suit,
+              previous: true,
+            },
+          })
+        }),
+        1
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
