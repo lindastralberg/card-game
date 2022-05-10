@@ -52,6 +52,7 @@
                 isGameOver: false,
                 points: 0,
                 lastGuess: null,
+                actualResult: null,
             };
         },
         methods: {
@@ -80,6 +81,7 @@
                 await this.drawNewCard();
                 this.setValues();
                 this.lastGuess = 'LOWER';
+                this.setResult();
 
                 if (this.currentValue < this.previousValue) {
                     this.points++;
@@ -91,6 +93,7 @@
                 await this.drawNewCard();
                 this.setValues();
                 this.lastGuess = 'SAME';
+                this.setResult();
 
                 if (this.currentValue == this.previousValue) {
                     this.points++;
@@ -102,6 +105,7 @@
                 await this.drawNewCard();
                 this.setValues();
                 this.lastGuess = 'HIGHER';
+                this.setResult();
 
                 if (this.currentValue > this.previousValue) {
                     this.points++;
@@ -112,6 +116,15 @@
             setValues() {
                 this.currentValue = this.translateValue(this.currentCard.value);
                 this.previousValue = this.translateValue(this.previousCard.value);
+            },
+            setResult() {
+                if (this.currentValue == this.previousValue) {
+                    this.actualResult = 'SAME';
+                } else if (this.currentValue > this.previousValue) {
+                    this.actualResult = 'HIGHER';
+                } else if (this.currentValue < this.previousValue) {
+                    this.actualResult = 'LOWER';
+                }
             },
             gameOver() {
                 this.isGameOver = true;

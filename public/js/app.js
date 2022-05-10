@@ -123,7 +123,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       previousCards: [],
       isGameOver: false,
       points: 0,
-      lastGuess: null
+      lastGuess: null,
+      actualResult: null
     };
   },
   methods: {
@@ -225,13 +226,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this5.lastGuess = 'LOWER';
 
+                _this5.setResult();
+
                 if (_this5.currentValue < _this5.previousValue) {
                   _this5.points++;
                 } else {
                   _this5.gameOver();
                 }
 
-              case 5:
+              case 6:
               case "end":
                 return _context5.stop();
             }
@@ -255,13 +258,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this6.lastGuess = 'SAME';
 
+                _this6.setResult();
+
                 if (_this6.currentValue == _this6.previousValue) {
                   _this6.points++;
                 } else {
                   _this6.gameOver();
                 }
 
-              case 5:
+              case 6:
               case "end":
                 return _context6.stop();
             }
@@ -285,13 +290,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this7.lastGuess = 'HIGHER';
 
+                _this7.setResult();
+
                 if (_this7.currentValue > _this7.previousValue) {
                   _this7.points++;
                 } else {
                   _this7.gameOver();
                 }
 
-              case 5:
+              case 6:
               case "end":
                 return _context7.stop();
             }
@@ -302,6 +309,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     setValues: function setValues() {
       this.currentValue = this.translateValue(this.currentCard.value);
       this.previousValue = this.translateValue(this.previousCard.value);
+    },
+    setResult: function setResult() {
+      if (this.currentValue == this.previousValue) {
+        this.actualResult = 'SAME';
+      } else if (this.currentValue > this.previousValue) {
+        this.actualResult = 'HIGHER';
+      } else if (this.currentValue < this.previousValue) {
+        this.actualResult = 'LOWER';
+      }
     },
     gameOver: function gameOver() {
       this.isGameOver = true;
