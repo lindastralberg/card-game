@@ -1,6 +1,6 @@
 <template>
     <div class="previous-cards-container">
-        <h2>Previous cards</h2>
+        <h2 class="previous-cards-title">Previous cards</h2>
         <div class="previous-cards">
             <card v-for="card in this.previousCards"
                 :key="card.code"
@@ -25,6 +25,10 @@
 <style scoped>
 .previous-cards-container {
     margin-top: 40px;
+}
+
+.previous-cards-title {
+    text-align: center;
 }
 
 .previous-cards {

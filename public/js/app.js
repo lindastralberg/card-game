@@ -630,7 +630,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.previous-cards-container[data-v-ca33375e] {\n    margin-top: 40px;\n}\n.previous-cards[data-v-ca33375e] {\n    display: grid;\n    grid-gap: 10px;\n    grid-template-columns: repeat(2, auto);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.previous-cards-container[data-v-ca33375e] {\n    margin-top: 40px;\n}\n.previous-cards-title[data-v-ca33375e] {\n    text-align: center;\n}\n.previous-cards[data-v-ca33375e] {\n    display: grid;\n    grid-gap: 10px;\n    grid-template-columns: repeat(2, auto);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2727,7 +2727,9 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "previous-cards-container" }, [
-    _c("h2", [_vm._v("Previous cards")]),
+    _c("h2", { staticClass: "previous-cards-title" }, [
+      _vm._v("Previous cards"),
+    ]),
     _vm._v(" "),
     _c(
       "div",
