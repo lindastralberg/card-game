@@ -86,6 +86,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -410,7 +411,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['lastGuess', 'points', 'previousCards'],
+  props: ['lastGuess', 'actualResult', 'points', 'previousCards'],
   components: {
     PreviousCards: _PreviousCards_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -2293,6 +2294,7 @@ var render = function () {
         : _c("game-over", {
             attrs: {
               lastGuess: this.lastGuess,
+              actualResult: this.actualResult,
               points: this.points,
               previousCards: this.previousCards,
             },
@@ -2340,7 +2342,9 @@ var render = function () {
               _vm._s(this.previousValue) +
               " of " +
               _vm._s(this.previousSuit) +
-              " were LOWER "
+              " were " +
+              _vm._s(this.actualResult) +
+              " "
           ),
           _c("br"),
           _vm._v(

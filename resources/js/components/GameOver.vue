@@ -3,7 +3,7 @@
         <div class="game-over">
             <h1>Game Over</h1>
             <p>You guessed {{ this.lastGuess }}, <br>
-            but {{ this.previousValue }} of {{ this.previousSuit }} were LOWER <br>
+            but {{ this.previousValue }} of {{ this.previousSuit }} were {{ this.actualResult }} <br>
             than {{ this.currentValue }} of {{ this.currentSuit }}</p>
             <p><b>Total points:</b> {{ this.points }}</p>
             <div class="buttons">
@@ -36,7 +36,7 @@
     import PreviousCards from './PreviousCards.vue';
 
     export default {
-        props: [ 'lastGuess', 'points', 'previousCards' ],
+        props: [ 'lastGuess', 'actualResult', 'points', 'previousCards' ],
         components: { PreviousCards },
         data() {
             return {

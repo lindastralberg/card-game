@@ -20,6 +20,7 @@
         <game-over
             v-else
             :lastGuess="this.lastGuess"
+            :actualResult="this.actualResult"
             :points="this.points"
             :previousCards="this.previousCards"
             @playAgain="this.restart"
