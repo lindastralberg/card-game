@@ -7,8 +7,8 @@ Points are awarded when you guess right. If you guess wrong, GAME OVER.
 
 ```console
 $ cd card-game
-/card-game $ composer install
-/card-game $ npm install
-/card-game $ php artisan run:serve
-/card-game $ npm run dev
+$ composer install
+$ npm install
+$ php artisan run:serve
+$ npm run dev
 ```
