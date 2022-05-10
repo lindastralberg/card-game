@@ -2,7 +2,12 @@
     <div class="container">
         <h1 class="game-title">Card Game</h1>
         <p class="points">Points: {{ this.points }}</p>
-        <div v-if="!isGameOver" class="game-container">
+        <pulse-loader
+            v-if="loading"
+            :loading="loading"
+            class="loader"
+        />
+        <div v-if="!isGameOver && !loading" class="game-container">
             <card 
                 v-if="currentCard"
                 :src="currentCard.image"
@@ -18,7 +23,7 @@
             <previous-cards :previousCards="this.previousCards" />
         </div>
         <game-over
-            v-else
+            v-if="isGameOver"
             :lastGuess="this.lastGuess"
             :actualResult="this.actualResult"
             :points="this.points"
@@ -32,12 +37,14 @@
     import Card from './Card.vue';
     import PreviousCards from './PreviousCards.vue';
     import GameOver from './GameOver.vue';
+    import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
     export default {
         components: {
             Card,
             PreviousCards,
             GameOver,
+            PulseLoader,
         },
         async mounted() {
             this.restart();
@@ -54,15 +61,19 @@
                 points: 0,
                 lastGuess: null,
                 actualResult: null,
+                loading: false,
             };
         },
         methods: {
             async getNewDeck() {
+                this.loading = true;
+
                 await fetch('http://localhost:8000/api/new_deck')
                     .then(response => response.json())
                     .then(data => this.deckId = data.deck_id);
 
                 this.currentCard = await this.drawCard();
+                this.loading = false;
             },
             async drawCard() {
                 let card;
@@ -159,6 +170,11 @@
     text-align: center;
     margin-top: 0;
     margin-bottom: 30px;
+}
+
+.loader {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .buttons {
