@@ -117,7 +117,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       deckId: null,
       currentCard: null,
+      currentValue: null,
       previousCard: null,
+      previousValue: null,
       previousCards: [],
       isGameOver: false,
       points: 0,
@@ -219,15 +221,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this5.drawNewCard();
 
               case 2:
+                _this5.setValues();
+
                 _this5.lastGuess = 'LOWER';
 
-                if (_this5.translateValue(_this5.currentCard.value) < _this5.translateValue(_this5.previousCard.value)) {
+                if (_this5.currentValue < _this5.previousValue) {
                   _this5.points++;
                 } else {
                   _this5.gameOver();
                 }
 
-              case 4:
+              case 5:
               case "end":
                 return _context5.stop();
             }
@@ -247,15 +251,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this6.drawNewCard();
 
               case 2:
+                _this6.setValues();
+
                 _this6.lastGuess = 'SAME';
 
-                if (_this6.translateValue(_this6.currentCard.value) == _this6.translateValue(_this6.previousCard.value)) {
+                if (_this6.currentValue == _this6.previousValue) {
                   _this6.points++;
                 } else {
                   _this6.gameOver();
                 }
 
-              case 4:
+              case 5:
               case "end":
                 return _context6.stop();
             }
@@ -275,21 +281,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this7.drawNewCard();
 
               case 2:
+                _this7.setValues();
+
                 _this7.lastGuess = 'HIGHER';
 
-                if (_this7.translateValue(_this7.currentCard.value) > _this7.translateValue(_this7.previousCard.value)) {
+                if (_this7.currentValue > _this7.previousValue) {
                   _this7.points++;
                 } else {
                   _this7.gameOver();
                 }
 
-              case 4:
+              case 5:
               case "end":
                 return _context7.stop();
             }
           }
         }, _callee7);
       }))();
+    },
+    setValues: function setValues() {
+      this.currentValue = this.translateValue(this.currentCard.value);
+      this.previousValue = this.translateValue(this.previousCard.value);
     },
     gameOver: function gameOver() {
       this.isGameOver = true;
@@ -394,7 +406,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showPreviousCards: false
+      showPreviousCards: false,
+      previousValue: this.previousCards[this.previousCards.length - 1].value,
+      previousSuit: this.previousCards[this.previousCards.length - 1].suit,
+      currentValue: this.previousCards[this.previousCards.length - 2].value,
+      currentSuit: this.previousCards[this.previousCards.length - 2].suit
     };
   },
   methods: {
@@ -2309,9 +2325,20 @@ var render = function () {
         _c("p", [
           _vm._v("You guessed " + _vm._s(this.lastGuess) + ", "),
           _c("br"),
-          _vm._v("\n        but ACE of SPADES were LOWER "),
+          _vm._v(
+            "\n        but " +
+              _vm._s(this.previousValue) +
+              " of " +
+              _vm._s(this.previousSuit) +
+              " were LOWER "
+          ),
           _c("br"),
-          _vm._v("\n        than TWO of HEARTS"),
+          _vm._v(
+            "\n        than " +
+              _vm._s(this.currentValue) +
+              " of " +
+              _vm._s(this.currentSuit)
+          ),
         ]),
         _vm._v(" "),
         _c("p", [

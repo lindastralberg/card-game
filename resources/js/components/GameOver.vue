@@ -3,8 +3,8 @@
         <div class="game-over">
             <h1>Game Over</h1>
             <p>You guessed {{ this.lastGuess }}, <br>
-            but ACE of SPADES were LOWER <br>
-            than TWO of HEARTS</p>
+            but {{ this.previousValue }} of {{ this.previousSuit }} were LOWER <br>
+            than {{ this.currentValue }} of {{ this.currentSuit }}</p>
             <p><b>Total points:</b> {{ this.points }}</p>
             <div class="buttons">
                 <button @click="this.playAgain">Play again</button>
@@ -41,6 +41,10 @@
         data() {
             return {
                 showPreviousCards: false,
+                previousValue: this.previousCards[this.previousCards.length - 1].value,
+                previousSuit: this.previousCards[this.previousCards.length - 1].suit,
+                currentValue: this.previousCards[this.previousCards.length - 2].value,
+                currentSuit: this.previousCards[this.previousCards.length - 2].suit,
             };
         },
         methods: {

@@ -45,7 +45,9 @@
             return {
                 deckId: null,
                 currentCard: null,
+                currentValue: null,
                 previousCard: null,
+                previousValue: null,
                 previousCards: [],
                 isGameOver: false,
                 points: 0,
@@ -76,9 +78,10 @@
             },
             async guessLower() {
                 await this.drawNewCard();
+                this.setValues();
                 this.lastGuess = 'LOWER';
 
-                if (this.translateValue(this.currentCard.value) < this.translateValue(this.previousCard.value)) {
+                if (this.currentValue < this.previousValue) {
                     this.points++;
                 } else {
                     this.gameOver();
@@ -86,9 +89,10 @@
             },
             async guessSame() {
                 await this.drawNewCard();
+                this.setValues();
                 this.lastGuess = 'SAME';
 
-                if (this.translateValue(this.currentCard.value) == this.translateValue(this.previousCard.value)) {
+                if (this.currentValue == this.previousValue) {
                     this.points++;
                 } else {
                     this.gameOver();
@@ -96,13 +100,18 @@
             },
             async guessHigher() {
                 await this.drawNewCard();
+                this.setValues();
                 this.lastGuess = 'HIGHER';
 
-                if (this.translateValue(this.currentCard.value) > this.translateValue(this.previousCard.value)) {
+                if (this.currentValue > this.previousValue) {
                     this.points++;
                 } else {
                     this.gameOver();
                 }
+            },
+            setValues() {
+                this.currentValue = this.translateValue(this.currentCard.value);
+                this.previousValue = this.translateValue(this.previousCard.value);
             },
             gameOver() {
                 this.isGameOver = true;
