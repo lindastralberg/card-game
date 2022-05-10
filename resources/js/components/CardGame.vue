@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <h1>Card Game</h1>
+        <h1 class="game-title">Card Game</h1>
+        <p class="points">Points: {{ this.points }}</p>
         <div v-if="!isGameOver" class="game-container">
             <card 
                 v-if="currentCard"
@@ -14,7 +15,6 @@
                 <button @click="this.guessSame">Same</button>
                 <button @click="this.guessHigher">Higher</button>
             </div>
-            <p>Points: {{ this.points }}</p>
             <previous-cards :previousCards="this.previousCards" />
         </div>
         <game-over
@@ -144,20 +144,28 @@
 </script>
 
 <style scoped>
-h1 {
-    text-align: center;
-}
-
 .container {
     display: grid;
     grid-column-start: 2;
     justify-content: center;
 }
 
+.game-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.points {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 20px;
 }
 
 .buttons button {

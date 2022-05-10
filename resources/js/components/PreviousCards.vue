@@ -23,6 +23,10 @@
 </script>
 
 <style scoped>
+.previous-cards-container {
+    margin-top: 40px;
+}
+
 .previous-cards {
     display: grid;
     grid-gap: 10px;
