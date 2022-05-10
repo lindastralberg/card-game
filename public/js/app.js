@@ -93,6 +93,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -134,7 +145,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       points: 0,
       lastGuess: null,
       actualResult: null,
-      loading: false
+      loading: false,
+      showRestartGamePrompt: false
     };
   },
   methods: {
@@ -336,14 +348,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
-                _this9.isGameOver = false;
-                _this9.previousCards = [];
+                _this9.deckId = null;
+                _this9.currentCard = null;
+                _this9.currentValue = null;
                 _this9.previousCard = null;
+                _this9.previousValue = null;
+                _this9.previousCards = [];
+                _this9.isGameOver = false;
                 _this9.points = 0;
-                _context9.next = 6;
+                _this9.lastGuess = null;
+                _this9.actualResult = null;
+                _this9.loading = false;
+                _this9.showRestartGamePrompt = false;
+                _context9.next = 14;
                 return _this9.getNewDeck();
 
-              case 6:
+              case 14:
               case "end":
                 return _context9.stop();
             }
@@ -582,7 +602,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.game-title[data-v-673e30e6] {\n    text-align: center;\n    margin-bottom: 10px;\n}\n.points[data-v-673e30e6] {\n    text-align: center;\n    margin-top: 0;\n    margin-bottom: 30px;\n}\n.loader[data-v-673e30e6] {\n    margin-left: auto;\n    margin-right: auto;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    margin-top: 20px;\n}\n.buttons button[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-673e30e6] {\n    display: grid;\n    grid-column-start: 2;\n    justify-content: center;\n}\n.game-title[data-v-673e30e6] {\n    text-align: center;\n    margin-bottom: 10px;\n}\n.points[data-v-673e30e6] {\n    text-align: center;\n    margin-top: 0;\n    margin-bottom: 30px;\n}\n.loader[data-v-673e30e6] {\n    margin-left: auto;\n    margin-right: auto;\n}\n.buttons[data-v-673e30e6] {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    margin-top: 20px;\n}\n.buttons button[data-v-673e30e6],\n.restart-game-btn[data-v-673e30e6] {\n    padding: 4px 12px;\n    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);\n    cursor: pointer;\n}\n.restart-game-btn[data-v-673e30e6] {\n    position: absolute;\n    right: 20px;\n    top: 20px;\n}\n.restart-game[data-v-673e30e6] {\n    width: 30em;\n    z-index: 100;\n    position: relative;\n    background-color: white;\n    border-radius: 10px;\n    padding: 10px;\n    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);\n    margin-top: 24px;\n    font-size: 14px;\n    text-align: center;\n}\n.restart-game-btn-final[data-v-673e30e6] {\n    background-color: #dc3545;\n    border: 2px solid #dc3545;\n    border-radius: 4px;\n    color: white;\n}\n.restart-game-btn-final[data-v-673e30e6]:hover {\n    background-color: #c82333;\n    border-color: #bd2130;\n}\n.overlay[data-v-673e30e6] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    background-color: rgba(0,0,0,0.7);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2548,7 +2568,7 @@ var render = function () {
           })
         : _vm._e(),
       _vm._v(" "),
-      !_vm.isGameOver && !_vm.loading
+      !_vm.isGameOver && !_vm.loading && !_vm.showRestartGamePrompt
         ? _c(
             "div",
             { staticClass: "game-container" },
@@ -2586,7 +2606,7 @@ var render = function () {
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm.isGameOver
+      _vm.isGameOver && !_vm.showRestartGamePrompt
         ? _c("game-over", {
             attrs: {
               lastGuess: this.lastGuess,
@@ -2596,6 +2616,54 @@ var render = function () {
             },
             on: { playAgain: this.restart },
           })
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "restart-game-btn",
+          on: {
+            click: function ($event) {
+              _vm.showRestartGamePrompt = true
+            },
+          },
+        },
+        [_vm._v("Restart game")]
+      ),
+      _vm._v(" "),
+      _vm.showRestartGamePrompt
+        ? _c("div", { staticClass: "restart-game-container" }, [
+            _c("div", { staticClass: "restart-game" }, [
+              _c("h3", [_vm._v("Are you sure you want to restart the game?")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("This will reset all your current progress.")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "buttons" }, [
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function ($event) {
+                        _vm.showRestartGamePrompt = false
+                      },
+                    },
+                  },
+                  [_vm._v("Cancel")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "restart-game-btn-final",
+                    on: { click: this.restart },
+                  },
+                  [_vm._v("Restart game")]
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "overlay" }),
+          ])
         : _vm._e(),
     ],
     1

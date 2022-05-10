@@ -1,5 +1,5 @@
 <template>
-    <div v-else class="game-over-container">
+    <div class="game-over-container">
         <div class="game-over">
             <h1>Game Over</h1>
             <p>You guessed {{ this.lastGuess }}, <br>

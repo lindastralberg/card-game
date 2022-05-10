@@ -7,7 +7,7 @@
             :loading="loading"
             class="loader"
         />
-        <div v-if="!isGameOver && !loading" class="game-container">
+        <div v-if="!isGameOver && !loading && !showRestartGamePrompt" class="game-container">
             <card 
                 v-if="currentCard"
                 :src="currentCard.image"
@@ -23,13 +23,24 @@
             <previous-cards :previousCards="this.previousCards" />
         </div>
         <game-over
-            v-if="isGameOver"
+            v-if="isGameOver && !showRestartGamePrompt"
             :lastGuess="this.lastGuess"
             :actualResult="this.actualResult"
             :points="this.points"
             :previousCards="this.previousCards"
             @playAgain="this.restart"
         />
+        <button class="restart-game-btn" @click="showRestartGamePrompt = true">Restart game</button>
+        <div v-if="showRestartGamePrompt" class="restart-game-container">
+            <div class="restart-game"><h3>Are you sure you want to restart the game?</h3>
+                <p>This will reset all your current progress.</p>
+                <div class="buttons">
+                <button @click="showRestartGamePrompt = false">Cancel</button>
+                <button @click="this.restart" class="restart-game-btn-final">Restart game</button>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </div>
     </div>
 </template>
 
@@ -62,6 +73,7 @@
                 lastGuess: null,
                 actualResult: null,
                 loading: false,
+                showRestartGamePrompt: false,
             };
         },
         methods: {
@@ -129,10 +141,18 @@
                 this.isGameOver = true;
             },
             async restart() {
-                this.isGameOver = false;
-                this.previousCards = [];
+                this.deckId = null;
+                this.currentCard = null;
+                this.currentValue = null;
                 this.previousCard = null;
+                this.previousValue = null;
+                this.previousCards = [];
+                this.isGameOver = false;
                 this.points = 0;
+                this.lastGuess = null;
+                this.actualResult = null;
+                this.loading = false;
+                this.showRestartGamePrompt = false;
 
                 await this.getNewDeck();
             },
@@ -184,9 +204,50 @@
     margin-top: 20px;
 }
 
-.buttons button {
+.buttons button,
+.restart-game-btn {
     padding: 4px 12px;
     box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
     cursor: pointer;
+}
+
+.restart-game-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.restart-game {
+    width: 30em;
+    z-index: 100;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    margin-top: 24px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.restart-game-btn-final {
+    background-color: #dc3545;
+    border: 2px solid #dc3545;
+    border-radius: 4px;
+    color: white;
+}
+
+.restart-game-btn-final:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
 }
 </style>
