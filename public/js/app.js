@@ -2744,7 +2744,7 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("\n            Display previous cards\n        ")]
+              [_vm._v("\n            Display cards\n        ")]
             )
           : _c(
               "p",
@@ -2756,7 +2756,7 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("\n            Hide previous cards\n        ")]
+              [_vm._v("\n            Hide cards\n        ")]
             ),
         _vm._v(" "),
         this.showPreviousCards

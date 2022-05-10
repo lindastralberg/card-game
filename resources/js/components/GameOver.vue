@@ -14,14 +14,14 @@
                 class="previous-cards-option"
                 @click="showPreviousCards = true"
             >
-                Display previous cards
+                Display cards
             </p>
             <p 
                 v-else 
                 class="previous-cards-option" 
                 @click="showPreviousCards = false"
             >
-                Hide previous cards
+                Hide cards
             </p>
             <previous-cards
                 v-if="this.showPreviousCards"
