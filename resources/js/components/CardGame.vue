@@ -77,41 +77,28 @@
                 this.previousCard = this.currentCard;
                 this.currentCard = await this.drawCard();
             },
-            async guessLower() {
+            async guess() {
                 await this.drawNewCard();
                 this.setValues();
-                this.lastGuess = 'LOWER';
                 this.setResult();
 
-                if (this.currentValue < this.previousValue) {
+                if (this.actualResult == this.lastGuess) {
                     this.points++;
                 } else {
                     this.gameOver();
                 }
+            },
+            async guessLower() {
+                this.lastGuess = 'LOWER';
+                this.guess();
             },
             async guessSame() {
-                await this.drawNewCard();
-                this.setValues();
                 this.lastGuess = 'SAME';
-                this.setResult();
-
-                if (this.currentValue == this.previousValue) {
-                    this.points++;
-                } else {
-                    this.gameOver();
-                }
+                this.guess();
             },
             async guessHigher() {
-                await this.drawNewCard();
-                this.setValues();
                 this.lastGuess = 'HIGHER';
-                this.setResult();
-
-                if (this.currentValue > this.previousValue) {
-                    this.points++;
-                } else {
-                    this.gameOver();
-                }
+                this.guess();
             },
             setValues() {
                 this.currentValue = this.translateValue(this.currentCard.value);

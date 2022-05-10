@@ -210,7 +210,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee4);
       }))();
     },
-    guessLower: function guessLower() {
+    guess: function guess() {
       var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
@@ -224,17 +224,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 _this5.setValues();
 
-                _this5.lastGuess = 'LOWER';
-
                 _this5.setResult();
 
-                if (_this5.currentValue < _this5.previousValue) {
+                if (_this5.actualResult == _this5.lastGuess) {
                   _this5.points++;
                 } else {
                   _this5.gameOver();
                 }
 
-              case 6:
+              case 5:
               case "end":
                 return _context5.stop();
             }
@@ -242,7 +240,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee5);
       }))();
     },
-    guessSame: function guessSame() {
+    guessLower: function guessLower() {
       var _this6 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
@@ -250,23 +248,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                _context6.next = 2;
-                return _this6.drawNewCard();
+                _this6.lastGuess = 'LOWER';
+
+                _this6.guess();
 
               case 2:
-                _this6.setValues();
-
-                _this6.lastGuess = 'SAME';
-
-                _this6.setResult();
-
-                if (_this6.currentValue == _this6.previousValue) {
-                  _this6.points++;
-                } else {
-                  _this6.gameOver();
-                }
-
-              case 6:
               case "end":
                 return _context6.stop();
             }
@@ -274,7 +260,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee6);
       }))();
     },
-    guessHigher: function guessHigher() {
+    guessSame: function guessSame() {
       var _this7 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
@@ -282,28 +268,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
-                _context7.next = 2;
-                return _this7.drawNewCard();
+                _this7.lastGuess = 'SAME';
+
+                _this7.guess();
 
               case 2:
-                _this7.setValues();
-
-                _this7.lastGuess = 'HIGHER';
-
-                _this7.setResult();
-
-                if (_this7.currentValue > _this7.previousValue) {
-                  _this7.points++;
-                } else {
-                  _this7.gameOver();
-                }
-
-              case 6:
               case "end":
                 return _context7.stop();
             }
           }
         }, _callee7);
+      }))();
+    },
+    guessHigher: function guessHigher() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _this8.lastGuess = 'HIGHER';
+
+                _this8.guess();
+
+              case 2:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
       }))();
     },
     setValues: function setValues() {
@@ -323,26 +317,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.isGameOver = true;
     },
     restart: function restart() {
-      var _this8 = this;
+      var _this9 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
           while (1) {
-            switch (_context8.prev = _context8.next) {
+            switch (_context9.prev = _context9.next) {
               case 0:
-                _this8.isGameOver = false;
-                _this8.previousCards = [];
-                _this8.previousCard = null;
-                _this8.points = 0;
-                _context8.next = 6;
-                return _this8.getNewDeck();
+                _this9.isGameOver = false;
+                _this9.previousCards = [];
+                _this9.previousCard = null;
+                _this9.points = 0;
+                _context9.next = 6;
+                return _this9.getNewDeck();
 
               case 6:
               case "end":
-                return _context8.stop();
+                return _context9.stop();
             }
           }
-        }, _callee8);
+        }, _callee9);
       }))();
     },
     translateValue: function translateValue(value) {
