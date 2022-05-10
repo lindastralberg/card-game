@@ -13,4 +13,4 @@ $ php artisan run:serve
 $ npm run dev
 ```
 
-The game should now be accessible at `127.0.0.1:8000`!
+The game should now be accessible at `127.0.0.1:8000`
